@@ -1,0 +1,14 @@
+Package: packdemo1
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Yufei",
+           family = "Wang",
+           role = c("aut", "cre"),
+           email = "yw227@uw.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This package demonstrates how to build a package for STAT302.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
