@@ -15,7 +15,7 @@
 #' my_knn_cv(train = iris[, -5], cl = iris$Species, k_nn = 1, k_cv = 5)
 #' my_knn_cv(train = iris[, -5], cl = iris$Species, k_nn = 5, k_cv = 5)
 #'
-#' @import class
+#' @import class dplyr
 #' @export
 
 my_knn_cv <- function(train, cl, k_nn, k_cv){
@@ -28,10 +28,10 @@ my_knn_cv <- function(train, cl, k_nn, k_cv){
   cv_err_vec <- rep(NA, k_cv)
 
   for (i in 1:k_cv) {
-    data_train <- data %>% filter(split != i)
-    data_test <- data %>% filter(split == i)
-    cl_train <- cl1 %>% filter(split != i)
-    cl_test <- cl1 %>% filter(split == i)
+    data_train <- data %>% dplyr::filter(split != i)
+    data_test <- data %>% dplyr::filter(split == i)
+    cl_train <- cl1 %>% dplyr::filter(split != i)
+    cl_test <- cl1 %>% dplyr::filter(split == i)
     cl_train$split <- NULL
     cl_test$split <- NULL
 
