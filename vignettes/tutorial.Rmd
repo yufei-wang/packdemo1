@@ -1,0 +1,20 @@
+---
+title: "Project 3: packdemo1 Tutorial"
+author: "Yufei Wang"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{packdemo1 Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(packdemo1)
+```

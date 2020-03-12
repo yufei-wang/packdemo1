@@ -5,3 +5,6 @@
   <!-- badges: start -->
   [![Travis build status](https://travis-ci.org/yufei-wang/packdemo1.svg?branch=master)](https://travis-ci.org/yufei-wang/packdemo1)
   <!-- badges: end -->
+  after_success:
+  - Rscript -e 'covr::codecov()'
+
