@@ -47,3 +47,4 @@ my_knn_cv <- function(train, cl, k_nn, k_cv){
   output <- list("class" = my_class, "cv_err" = cv_err)
   return(output)
 }
+
