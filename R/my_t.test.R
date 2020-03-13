@@ -13,12 +13,12 @@
 #'   p_val: the numeric p-value.
 #'
 #' @examples
-#' my_t_test(1:5, 2, alt = "greater")
+#' my_t.test(1:5, 2, alt = "greater")
 #'
 #' @import stats
 #' @export
 
-my_t_test <- function(x, alternative, mu){
+my_t.test <- function(x, alternative, mu){
   str <- c("two.sided", "less", "greater")
   if (!(alternative %in% str)) {
     return("alternative should be \"two.sided\", \"less\", or \"greater\" only.")
