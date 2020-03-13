@@ -20,7 +20,7 @@ my_lm <- function(formula, data){
   Y <- model.response(my_model)
   df <- nrow(data) - ncol(X)
   #Calculate intercept
-  beta <- solve(t(X) %*% X) %*% t(X) %*%
+  beta <- solve(t(X) %*% X) %*% t(X) %*% Y
     # calculates variance
   sigma_2 <- sum((Y - X %*% beta)^2/df)
   #Calculate standard error
@@ -29,8 +29,8 @@ my_lm <- function(formula, data){
   t <- (beta - 0)/se
   p_val <- 2*pt(abs(t), df, lower=FALSE)
   # make table
-  result <- cbind(beta, se, t_value, pr)
+  result <- cbind(beta, se, t, p_val)
   colnames(result) <- c("Estimate", "Std.Error", "t.value", "Pr(>|t|)")
-  result <-data.frame(result)
+  result <-as.table(result)
   return(result)
 }

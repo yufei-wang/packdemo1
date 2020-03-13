@@ -3,5 +3,5 @@ test_that("the output is list", {
 })
 
 test_that("my_t_test throws an error when input is incorrect", {
-  expect_error(my_t_test("string", 0, "stat"))
+  expect_error(my_t_test("string"))
 })
