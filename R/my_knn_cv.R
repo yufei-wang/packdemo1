@@ -44,7 +44,7 @@ my_knn_cv <- function(train, cl, k_nn, k_cv){
     yhat_star <- knn(train = data_train, test = data_test,
                      cl = cl_train[,1, drop = TRUE], k = k_nn)
     #convert to data frame
-    # yhat_star.df <- data.frame(yhat_star)
+    yhat_star.df <- data.frame(yhat_star)
     cv_err_vec[i] = sum(yhat_star.df != cl_test) / nrow(cl_test)
   }
   class <- knn(train = train, test = train, cl = cl, k = k_nn)
