@@ -31,6 +31,6 @@ my_lm <- function(formula, data){
   # make table
   result <- cbind(beta, se, t_value, pr)
   colnames(result) <- c("Estimate", "Std.Error", "t.value", "Pr(>|t|)")
-  result <-as.table(result)
+  result <-data.frame(result)
   return(result)
 }
