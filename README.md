@@ -1,10 +1,9 @@
-usethis::use_testthat() Writing '.travis.yml'
-✔ Adding '^\\.travis\\.yml$' to '.Rbuildignore'
-● Turn on travis for your repo at https://travis-ci.org/profile/yufei-wang
-●
-  <!-- badges: start -->
-  [![Travis build status](https://travis-ci.org/yufei-wang/packdemo1.svg?branch=master)](https://travis-ci.org/yufei-wang/packdemo1)
+ <!-- badges: start -->
+  [![Travis build status](https://travis-ci.org/edwardsung63/stat302package.svg?branch=master)](https://travis-ci.com/edwardsung63/stat302package)
   <!-- badges: end -->
-  after_success:
-  - Rscript -e 'covr::codecov()'
+
+
+<!-- badges: start -->
+  [![Codecov test coverage](https://codecov.io/gh/edwardsung63/stat302package/branch/master/graph/badge.svg)](https://codecov.io/gh/edwardsung63/stat302package?branch=master)
+  <!-- badges: end -->
 
