@@ -4,6 +4,6 @@
 
 
 <!-- badges: start -->
-  [![Codecov test coverage](https://codecov.io/gh/yufei-wang63/stat302package/branch/master/graph/badge.svg)](https://codecov.io/gh/yufei-wang/stat302package?branch=master)
+  [![Codecov test coverage](https://codecov.io/gh/yufei-wang/stat302package/branch/master/graph/badge.svg)](https://codecov.io/gh/yufei-wang/stat302package?branch=master)
   <!-- badges: end -->
 
