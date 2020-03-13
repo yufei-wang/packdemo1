@@ -15,7 +15,7 @@
 #' @examples
 #' my_t.test(1:5, 2, alt = "greater")
 #'
-#' @import stat
+#' @import stats
 #' @export
 
 my_t.test <- function(x, alternative, mu){
