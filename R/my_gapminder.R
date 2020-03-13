@@ -20,4 +20,4 @@
 #' head(my_gapminder)
 #'
 #' The data were collected by Jennifer Bryan.
-"my_gapminder
+"my_gapminder"

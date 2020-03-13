@@ -7,16 +7,17 @@
 f_to_c(temp_F)
 }
 \arguments{
-\item{temp_F}{numeric input indicating temperature in Fahrenheit}
+\item{temp_F}{Numeric input showing temperature in Fahrenheit.}
 }
 \value{
-Numeric indicating temperature \code{temp_F} converted to Celsius
+Numeric indicating temperature \code{temp_f} converted to Celcius.
 }
 \description{
-This function converts temperature from Fahrenheit to Celsius
+This funtion converts temperature from Fahrenheit to Celsius.
 }
 \examples{
 f_to_c(32)
 f_to_c(212)
 
 }
+\keyword{temperature}

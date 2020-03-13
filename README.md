@@ -1,4 +1,4 @@
- Writing '.travis.yml'
+usethis::use_testthat() Writing '.travis.yml'
 ✔ Adding '^\\.travis\\.yml$' to '.Rbuildignore'
 ● Turn on travis for your repo at https://travis-ci.org/profile/yufei-wang
 ●

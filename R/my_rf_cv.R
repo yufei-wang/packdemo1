@@ -23,7 +23,7 @@ my_rf_cv <- function(k){
     data_train <- data %>% dplyr::filter(split != i)
     data_test <- data %>% dplyr::filter(split == i)
     model <- randomForest(lifeExp ~ gdpPercap, data = data_train, ntree = 100)
-    prediction <- predict(my_model, data_test[, -1])
+    prediction <- predict(model, data_test[, -1])
     cv_err_vec[i] = mean((data_test$lifeExp - prediction)^2)
   }
   cv_err <- mean(cv_err_vec)

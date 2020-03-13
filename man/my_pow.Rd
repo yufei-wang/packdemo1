@@ -2,21 +2,21 @@
 % Please edit documentation in R/my_pow.R
 \name{my_pow}
 \alias{my_pow}
-\title{Power function}
+\title{Power Funtion}
 \usage{
 my_pow(x, power = 2)
 }
 \arguments{
-\item{x}{numeric input to be raised to the power of \code{power}.}
+\item{x}{Numeric input to be raised to a power of \code{power}.}
 
 \item{power}{Numeric input for the power that \code{x} will be raised to,
-defaults to \code{2}}
+defaults to \code{2}.}
 }
 \value{
-Numeric representing \code{x} raised to the power of \code{power}
+Numeric representing \code{x} raised to the power of \code{power}.
 }
 \description{
-This function raises input to power
+This funtion raises input to a power.
 }
 \examples{
 my_pow(4)
