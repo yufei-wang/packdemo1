@@ -27,7 +27,7 @@ my_lm <- function(formula, data){
   se <- diag(sqrt(sigma_2 * solve(t(X) %*% X)))
   #Calculate t value and p value
   t <- (beta - 0)/se
-  p_val <- 2*pt(abs(t), df, lower=FALSE)
+  p_val <- 2*pt(abs(t), df, lower.tail = FALSE)
   # make table
   result <- cbind(beta, se, t, p_val)
   colnames(result) <- c("Estimate", "Std.Error", "t.value", "Pr(>|t|)")

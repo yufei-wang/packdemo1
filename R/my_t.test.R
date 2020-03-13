@@ -30,9 +30,9 @@ my_t.test <- function(x, alternative, mu){
     mean <- mean(x)
     t <- (mean - mu)/se
     if (alternative == "less"){
-      p_val <- pt(t, df, lower=TRUE)
+      p_val <- pt(t, df, lower.tail = TRUE)
     } else if (alternative == "greater") {
-      p_val <- pt(t, df, lower=FALSE)
+      p_val <- pt(t, df, lower.tail = FALSE)
     } else {
       p_val <- 2*pt(-abs(t), df)
     }
