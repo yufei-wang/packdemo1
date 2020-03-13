@@ -36,7 +36,7 @@ my_t.test <- function(x, alternative, mu){
     } else {
       p_val <- 2*pt(-abs(t), df)
     }
-    output_list <- c("test_stat" = t, "df" = df,
+    output_list <- list("test_stat" = t, "df" = df,
                      "alternative" = alternative, "p-value" = p_val)
     return(output_list)
   }
