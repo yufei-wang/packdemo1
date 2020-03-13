@@ -1,9 +1,9 @@
 ---
-title: "Project 3: packdemo1 Tutorial"
+title: "Project 3: stat302package Tutorial"
 author: "Yufei Wang"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{packdemo1 Tutorial}
+  %\VignetteIndexEntry{Project 3: stat302package Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,5 +16,5 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(packdemo1)
+library(stat302package)
 ```
