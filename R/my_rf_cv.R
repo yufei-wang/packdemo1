@@ -2,7 +2,7 @@
 #'
 #' This function is to predict output using covariates.
 #' @param k number of folds
-#' @keywords Random Forest Cross-Validation
+#' @keywords prediction
 #'
 #' @return a list with a numeric with the cross-validation error
 #'

@@ -6,7 +6,7 @@
 #' @param cl true class value of your training data
 #' @param k_nn integer representing the number of neighbors
 #' @param k_cv integer representing the number of folds
-#' @keywords k-Nearest Neighbors Cross-Validation
+#' @keywords prediction
 #'
 #' @return A list with a vector of the predicted class for all observations and
 #'  a numeric with the cross-validation misclassification error
@@ -19,6 +19,11 @@
 #' @export
 
 my_knn_cv <- function(train, cl, k_nn, k_cv){
+
+  if(!is.numeric(k_nn) || !is.numeric(k_cv)) {
+    stop("k_nn and k_cv must be numeric !")
+  }
+
   set.seed(302)
   n <- nrow(train)
   # Split data in k_cv parts randomly
@@ -47,4 +52,5 @@ my_knn_cv <- function(train, cl, k_nn, k_cv){
   output <- list("class" = my_class, "cv_err" = cv_err)
   return(output)
 }
+
 
