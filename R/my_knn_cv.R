@@ -49,7 +49,7 @@ my_knn_cv <- function(train, cl, k_nn, k_cv){
   }
   class <- knn(train = train, test = train, cl = cl, k = k_nn)
   cv_err <- mean(cv_err_vec)
-  output <- list("class" = my_class, "cv_err" = cv_err)
+  output <- list("class" = class, "cv_err" = cv_err)
   return(output)
 }
 
