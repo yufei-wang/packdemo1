@@ -13,11 +13,10 @@
 #' \item{gdpPercap}{per-capita GDP}
 #' }
 #'
-#' \source
-#' https://github.com/jennybc/gapminder
+#' @source
+#' http://www.gapminder.org/data/.
 #'
-#'#' @examples
+#' @examples
 #' head(my_gapminder)
 #'
-#' The data were collected by Jennifer Bryan.
 "my_gapminder"

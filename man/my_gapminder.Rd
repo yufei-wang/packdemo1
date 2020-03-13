@@ -12,20 +12,19 @@
 \item{lifeExp}{life expectancy at birth}
 \item{pop}{total population}
 \item{gdpPercap}{per-capita GDP}
+}}
+\source{
+http://www.gapminder.org/data/.
 }
-
-\source
-https://github.com/jennybc/gapminder
-
-#' @examples
-head(my_gapminder)
-
-The data were collected by Jennifer Bryan.}
 \usage{
 my_gapminder
 }
 \description{
 The famous \code{\link[datasets]{gapminder}} dataset taken from the
 \code{datasets} package to demonstrate use of all of these functions.
+}
+\examples{
+head(my_gapminder)
+
 }
 \keyword{datasets}
