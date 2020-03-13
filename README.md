@@ -8,11 +8,14 @@
   <!-- badges: end -->
   
 
+
+You can see the vignette by using the following code:
+``` r
 devtools::install_github("yufei-wang/stat302package", build_vignette = TRUE, build_opts = c())
 library(stat302package)
 # Use this to view the vignette in the Demo HTML help
 help(package = "stat302package", help_type = "html")
 # Use this to view the vignette as an isolated HTML file
 utils::browseVignettes(package = "stat302package")
-
+```
 
