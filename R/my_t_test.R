@@ -13,7 +13,7 @@
 #'   p_val: the numeric p-value.
 #'
 #' @examples
-#' my_t.test(1:5, 2, alt = "greater")
+#' my_t_test(1:5, 2, alt = "greater")
 #'
 #' @import stats
 #' @export
