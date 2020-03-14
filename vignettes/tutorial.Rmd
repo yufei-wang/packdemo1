@@ -33,7 +33,7 @@ Thus we use this package to do t-test, linear modeling, k-Nearest-Neighbors, and
 Note that in order to follow along with this tutorial, you will need to installthe package from github by running the following code.
 Install Package from Github repository:
 ```{r, eval = FALSE}
-devtools::install_github("yufei-wang/stat302")
+devtools::install_github("yufei-wang/stat302package")
 ```
 
 To begin, we load some necessary packages and dataset using:
@@ -45,6 +45,8 @@ library(magrittr)
 library(dplyr)
 library(class)
 library(randomForest)
+library(kableExtra)
+library(ggplot2)
 data("my_gapminder")
 ```
 
@@ -56,5 +58,100 @@ If you are unfamiliar with my_gapminder, make sure to check my_gapminder:
 
 ## Tutorial
 
-### Tutorial 1
-The first tutorial is for my_t.test
+### Tutorial 1:  my_t.test
+The first tutorial is for my_t.test. We use `lifeExp` data from `my_gapminder` to do several t-tests.
+
+#### Example 1: alternative = "two.sided"
+$$H_0: \mu = 60$$
+$$H_a: \mu \neq 60$$
+$$\alpha = 0.05$$
+```{r}
+data("my_gapminder")
+my_t.test(my_gapminder$lifeExp, alternative = "two.sided", mu = 60)
+```
+From the result, we fail to reject the null hypothesis at the 0.05 alpha level since p-value is greater than 0.05.
+
+# Example II: alternative = "less"
+$$H_0: \mu = 60$$
+$$H_a: \mu < 60$$
+$$\alpha = 0.05$$
+```{r}
+my_t.test(my_gapminder$lifeExp, alternative = "less", mu = 60)
+```
+From the result, we reject the null hypothesis at the 0.05 alpha level since p-value is smaller than 0.05.
+
+# Example III: alternative = "greater"
+$$H_0: \mu = 60$$
+$$H_a: \mu > 60$$
+$$\alpha = 0.05$$
+```{r}
+my_t.test(my_gapminder$lifeExp, alternative = "greater", mu = 60)
+```
+From the result, we fail to reject the null hypothesis at the 0.05 alpha level since p-value is greater than 0.05.
+
+
+### Tutorial 2
+The second tutorial is for my_lm. 
+
+
+### Tutorial 3
+The third tutorial is for my_knn_cv. We will predict output class continent using covariates gdpPercap and lifeExp and 5-fold cross validation (k_cv = 5).
+To do k-fold cross-validation, we split data into 5 parts (folds) at first. Then we use all but 1 fold as our training data and fit the model. After that, 
+we use the remaining folds for test data and make predictions. In this way, we switch which fold is our test data and repeat this process until all folds 
+have been test data. Finally, we compute squared error.
+
+```{r}
+train <- my_gapminder %>% select(gdpPercap, lifeExp)
+cl <- my_gapminder$continent
+k_cv = 5
+#create empty matrix to save result
+result.mat <- matrix(NA, 10, 2)
+for (i in 1:10) {
+  output <- my_knn_cv(train = train, cl = cl, k_nn = i, k_cv = k_cv)
+  
+  # record training misclassfication rate
+  result.mat[i, 2] <- (sum(output$class != cl) / length(cl)) %>% round(5)
+  
+  # record CV misclassfication rate
+  result.mat[i, 1] <- output$cv_err
+  
+}
+result <- data.frame("Number of neighbors" = c(1:10), 
+                     "CV misclassification rate" = result.mat[, 1],
+                     "training misclassification rate" = result.mat[, 2])
+kable_styling(kable(result))
+
+```
+
+Based on the result, if we are based on training misclassification rates, we will choose k_nn = 1 since the training misclassfication rate of k_nn = 1 is smallest, which is close to 0. If we are based on CV misclassification rates, we will choose k_nn = 5 since the cv error of k_nn = 10 is smallest among all of the knn value.
+
+In practice, as a rule of thumb, we will choose k = 5 and k = 10 sincce these values tend to result in an ideal balance in terms of the bias-variance tradeoff.
+
+ 
+### Tutorial 4
+The fourth tutorial is for my_rf_cv.
+```{r}
+#create matrix to store cv error
+cv_err.mat <- matrix(NA, 90, 2)
+cv_err.mat[, 1] <- rep(c(2, 5, 10), 30)
+j = 1
+#For each value of k, run your function 30 times.
+for(i in 1:30) {
+  
+    # Iterate through k in c(2, 5, 10):
+    for(k in c(2, 5, 10)) {
+      
+    #For each of the 30 iterations, store the CV estimated MSE.
+    cv_err.mat[j, 2] <- my_rf_cv1(k) %>% round(5)
+    j = j +1
+  }
+}
+cv.err <- data.frame("k" = cv_err.mat[, 1], "mse" = cv_err.mat[, 2])
+ggplot(data = cv.err, aes(x = factor(k), y = mse), fill = factor(k)) +
+  geom_boxplot(fill = "cornflowerblue") +
+  labs(title = "Boxplots of MSE by k folds", x = "Number of Folds", y = "MSE") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+

@@ -14,7 +14,6 @@
 #' @export
 #'
 my_rf_cv <- function(k){
-  set.seed(229)
   n <- nrow(my_gapminder)
   fold <- sample(rep(1:k, length = n))
   data <- data.frame(my_gapminder, "split" = fold)
