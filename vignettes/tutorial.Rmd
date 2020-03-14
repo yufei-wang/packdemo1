@@ -142,7 +142,7 @@ for(i in 1:30) {
     for(k in c(2, 5, 10)) {
       
     #For each of the 30 iterations, store the CV estimated MSE.
-    cv_err.mat[j, 2] <- my_rf_cv1(k) %>% round(5)
+    cv_err.mat[j, 2] <- my_rf_cv(k) %>%  round(5)
     j = j +1
   }
 }
@@ -152,6 +152,7 @@ ggplot(data = cv.err, aes(x = factor(k), y = mse), fill = factor(k)) +
   labs(title = "Boxplots of MSE by k folds", x = "Number of Folds", y = "MSE") +
   theme_bw(base_size = 20) +
   theme(plot.title = element_text(hjust = 0.5))
+
 
 ```
 
