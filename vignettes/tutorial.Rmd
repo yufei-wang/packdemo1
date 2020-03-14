@@ -71,7 +71,7 @@ my_t.test(my_gapminder$lifeExp, alternative = "two.sided", mu = 60)
 ```
 From the result, we fail to reject the null hypothesis at the 0.05 alpha level since p-value is greater than 0.05.
 
-# Example II: alternative = "less"
+#### Example II: alternative = "less"
 $$H_0: \mu = 60$$
 $$H_a: \mu < 60$$
 $$\alpha = 0.05$$
@@ -80,7 +80,7 @@ my_t.test(my_gapminder$lifeExp, alternative = "less", mu = 60)
 ```
 From the result, we reject the null hypothesis at the 0.05 alpha level since p-value is smaller than 0.05.
 
-# Example III: alternative = "greater"
+#### Example III: alternative = "greater"
 $$H_0: \mu = 60$$
 $$H_a: \mu > 60$$
 $$\alpha = 0.05$$
