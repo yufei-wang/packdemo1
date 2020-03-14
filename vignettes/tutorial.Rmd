@@ -45,7 +45,6 @@ library(magrittr)
 library(dplyr)
 library(class)
 library(randomForest)
-library(knitr)
 library(kableExtra)
 library(ggplot2)
 data("my_gapminder")
@@ -98,7 +97,33 @@ First, we demonstrate a regression using lifeExp as our response variable and gd
 tutor_model <- my_lm(lifeExp ~ gdpPercap + continent, data = my_gapminder)
 tutor_model
 ```
+Interpreting Coefficients: We would expect an average increase of 0.00045 for LifeExp when continent is unchanged.
+Next, we will do the hypothesis test associated with the gdpPercap coefficient $\beta_1$ using the significant level of 0.05.
+$H_0: \beta_1 = 0$
+$H_0: \beta_1 \neq 0$
+$ \alpha = 0.05$
 
+From the result of the table, we reject the null hypothesis at the 0.05 alpha level since p-value is 0, which is smaller than 0.05.
+Thus we could say that changes in gdpPercap is related to changes in lifeExp.
+
+Then, we want to use ggplot2 to plot the Actual vs. Fitted values.
+```{r}
+coef <- tutor_model[, 1]
+x_hat <- model.matrix(lifeExp ~ gdpPercap + continent, data = my_gapminder)
+y_hat <- x_hat %*% as.matrix(coef)
+my.df <- data.frame("Fitted" = y_hat, 
+                    "Actual" = my_gapminder$lifeExp,
+                    "Continent" = my_gapminder$continent)
+
+ggplot(data = my.df, aes(x = Fitted, y = Actual, color = Continent)) +
+  geom_point() +
+  geom_abline(slope = 1, intercept = 0) +
+  labs(x = "Fitted Values", y = "Actual Values", title = "Actual vs. Fitted Values",
+       color = "Continent") +
+  theme_bw(base_size = 20) +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+Based on the plot, the line looks like only fit the data points of Europe and Oceania. The linear relationships indicates that the model is good for Europe and Oceania. However, for other continents, the model doesn't work properly. Thus, we should try other regressions to fit.
 
 
 ### Tutorial 3
