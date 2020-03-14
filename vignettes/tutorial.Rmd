@@ -153,6 +153,13 @@ ggplot(data = cv.err, aes(x = factor(k), y = mse), fill = factor(k)) +
   theme_bw(base_size = 20) +
   theme(plot.title = element_text(hjust = 0.5))
 
-
+table.df <- cv.err %>% group_by(k) %>% summarise("mean" = mean(mse), "sd" = sd(mse))
+table.df %>% 
+  kable("html") %>% 
+  kable_styling()
 ```
+From result of table, we observe that the standard error of MSE decreases as k increases. Meanwhile, the mean of MSE increases as k increases.
+From result of boxplot, we can see that the range of MSE becomes narrow as k increases. Meanwhile, the median increases  as k increases.
+It is because of bias-variance tradeoff. If we ncrease the complexity of a kind of model, the bias decreases and the variance increases. Thus, as k increases, the standard error of MSE decreases and mean of MSE increases.
+
 
