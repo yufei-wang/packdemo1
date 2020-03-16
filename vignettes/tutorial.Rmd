@@ -123,7 +123,7 @@ ggplot(data = my.df, aes(x = Fitted, y = Actual, color = Continent)) +
   theme_bw(base_size = 20) +
   theme(plot.title = element_text(hjust = 0.5))
 ```
-Based on the plot, the line looks like only fit the data points of Europe and Oceania. The linear relationships indicates that the model is good for Europe and Oceania. However, for other continents, the model doesn't work properly. Thus, we should try other regressions to fit.
+Based on the plot, the line looks like only fit the data points of Europe and Oceania. The linear relationships indicates that the model is good for Europe and Oceania. However, for other continents, the model doesn't work properly. Thus, we should try other regressions.
 
 
 ### Tutorial 3
@@ -155,7 +155,7 @@ kable_styling(kable(result))
 
 ```
 
-Based on the result, if we are based on training misclassification rates, we will choose k_nn = 1 since the training misclassfication rate of k_nn = 1 is smallest, which is close to 0. If we are based on CV misclassification rates, we will choose k_nn = 5 since the cv error of k_nn = 10 is smallest among all of the knn value.
+Based on the result, if we are based on training misclassification rates, we will choose k_nn = 1 since the training misclassfication rate of k_nn = 1 is smallest, which is close to 0. If we are based on CV misclassification rates, we will choose k_nn = 10 since the cv error of k_nn = 10 is smallest among all of the knn value.
 
 In practice, as a rule of thumb, we will choose k = 5 and k = 10 sincce these values tend to result in an ideal balance in terms of the bias-variance tradeoff.
 

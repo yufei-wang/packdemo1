@@ -21,7 +21,7 @@
 my_knn_cv <- function(train, cl, k_nn, k_cv){
 
   if(!is.numeric(k_nn) || !is.numeric(k_cv)) {
-    stop("k_nn and k_cv must be numeric !")
+    stop("k_nn and k_cv must be numeric!")
   }
 
   set.seed(302)
