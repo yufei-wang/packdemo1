@@ -19,15 +19,20 @@ my_lm <- function(formula, data){
   my_model <- model.frame(formula, data)
   Y <- model.response(my_model)
   df <- nrow(data) - ncol(X)
+
   #Calculate intercept
   beta <- solve(t(X) %*% X) %*% t(X) %*% Y  %>% round(5)
-    # calculates variance
+
+  # calculates variance
   sigma_2 <- sum((Y - X %*% beta)^2/df)  %>% round(5)
+
   #Calculate standard error
   se <- diag(sqrt(sigma_2 * solve(t(X) %*% X)))  %>% round(5)
+
   #Calculate t value and p value
   t <- (beta - 0)/se  %>% round(5)
   p_val <- 2*pt(abs(t), df, lower.tail = FALSE)  %>% round(5)
+
   # make table
   result <- cbind(beta, se, t, p_val)
   colnames(result) <- c("Estimate", "Std.Error", "t.value", "Pr(>|t|)")
