@@ -157,7 +157,7 @@ kable_styling(kable(result))
 
 Based on the result, if we are based on training misclassification rates, we will choose k_nn = 1 since the training misclassfication rate of k_nn = 1 is smallest, which is close to 0. If we are based on CV misclassification rates, we will choose k_nn = 10 since the cv error of k_nn = 10 is smallest among all of the knn value.
 
-In practice, as a rule of thumb, we will choose k = 5 and k = 10 sincce these values tend to result in an ideal balance in terms of the bias-variance tradeoff.
+In practice, as a rule of thumb, we will choose k = 5 or k = 10 sincce these values tend to result in an ideal balance in terms of the bias-variance tradeoff.
 
  
 ### Tutorial 4
