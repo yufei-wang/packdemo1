@@ -8,6 +8,7 @@ Authors@R:
            email = "yw227@uw.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: This package demonstrates how to build a package for STAT302.
+Depends: R (>= 3.2)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
